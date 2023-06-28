@@ -1,6 +1,6 @@
 ---
 - name: Site Down
-  hosts: localhost
+  hosts: all
   connection: local
   gather_facts: false
   become: true
