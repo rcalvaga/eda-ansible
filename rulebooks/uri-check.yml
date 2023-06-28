@@ -22,5 +22,5 @@
     ## Define the action we should take should the condition be met  
       action:
         run_job_template:
-          name: fix_web
-          organization: Default
+          name: Ethermine - Miner Status
+          organization: Services Catalog - admin
