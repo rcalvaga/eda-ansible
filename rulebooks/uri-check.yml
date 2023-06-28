@@ -16,8 +16,8 @@
     ## Define the action we should take should the condition be met  
       action:
         run_job_template:
-          name: Ethermine - Miner Status
-          organization: Services Catalog - admin
+          name: EDA - All is up and well
+          organization: Production
 
     - name: Web site is down
       condition: event.url_check.status == "down"
@@ -25,4 +25,4 @@
       action:
         run_job_template:
           name: Ethermine - Miner Status
-          organization: Services Catalog - admin
+          organization: Production
