@@ -1,0 +1,23 @@
+---
+- name: Site Down
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: true
+  tasks:
+    - debug:
+        msg: "Website is down!"
+
+    - name: Restart Apache service
+      ansible.builtin.systemd:
+        name: httpd.service
+        state: restarted
+
+          #    - name: Replace website
+          #      copy:
+          #       remote_src: yes
+          #       src: /tmp/index.html
+          #       dest: /var/www/html/
+          #       owner: apache
+          #       group: apache
+          #       mode: '0644'
