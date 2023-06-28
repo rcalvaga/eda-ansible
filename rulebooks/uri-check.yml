@@ -7,6 +7,7 @@
         urls:
           - http://192.168.1.94
         delay: 10
+        verify_ssl: False
 
   rules:
     ## Define the conditions we are looking for 
