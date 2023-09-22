@@ -12,12 +12,19 @@
       ansible.builtin.systemd:
         name: httpd.service
         state: restarted
+      when: >
+        ansible_distribution == 'CentOS'
+        or
+        ansible_distribution == 'RedHat'
+        or
+        ansible_distribution == 'Fedora'
+        
+    - name: Restart Apache service
+      ansible.builtin.systemd:
+        name: apache2.service
+        state: restarted
+      when: >
+        ansible_distribution == 'Debian'
+        or
+        ansible_distribution == 'Ubuntu'
 
-          #    - name: Replace website
-          #      copy:
-          #       remote_src: yes
-          #       src: /tmp/index.html
-          #       dest: /var/www/html/
-          #       owner: apache
-          #       group: apache
-          #       mode: '0644'
