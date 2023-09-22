@@ -5,7 +5,7 @@
   sources:
      - ansible.eda.url_check:
         urls:
-          - http://192.168.1.94
+          - http://192.168.2.79
         delay: 30
         verify_ssl: False
 
