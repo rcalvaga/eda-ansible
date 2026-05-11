@@ -9,4 +9,9 @@
     - name: debug
       condition: event.payload is defined
       action:
+        debug: "Payload defined!"
+    - name: Webhook event
+      condition: event.payload.ping == "pong"
+      action:
         debug:
+          msg: "Webhook triggered!"
