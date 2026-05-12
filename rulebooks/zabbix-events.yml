@@ -1,5 +1,5 @@
 ---
-- name: Zabbix Apache is Down Rulebook
+- name: Zabbix Rulebook Events
   hosts: all
   sources:
     - ansible.eda.webhook:
@@ -15,8 +15,8 @@
           job_args:
             limit: "{{ event.payload.host_host }}"
             
-    - name: Zabbix High Memory Utilization
+    - name: Zabbix High Memory Utilization Event
       condition: event.payload.trigger_id == 32704 and event.payload.trigger_name is regex("Linux.*High memory utilization")
       action:
         debug: 
-          msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Trigger_ID: {{ event.payload.trigger_id }}"
+          msg: "Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} on Server: {{ event.payload.host_host }}"
