@@ -7,7 +7,7 @@
         port: 5050
   rules:
     - name: Debug
-      condition: event.payload is defined
+      condition: event.meta.headers is defined
       action:
         debug: 
           msg: "Payload defined!"
