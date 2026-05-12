@@ -13,7 +13,7 @@
           msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }}"
           
     - name: Zabbix Webhook event
-      condition: event.payload.event_tags.target is select("==","apache") and event.payload.operation_data is regex("Down*")
+      condition: event.payload.event_tags.target is select("==","apache")
       action:
         run_job_template:
           name: Restart Apache Web Server
