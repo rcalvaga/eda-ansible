@@ -7,4 +7,3 @@
     ansible.builtin.file:
       path: /root/archivo_grande.bin
       state: absent
-    become: true
