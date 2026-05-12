@@ -3,8 +3,8 @@
   hosts: all
   tasks:
 
-  - name: Remove /bigfile if it exists
+  - name: Remove /root/archivo_grande.bin if it exists
     ansible.builtin.file:
-      path: /bigfile
+      path: /root/archivo_grande.bin
       state: absent
     become: true
