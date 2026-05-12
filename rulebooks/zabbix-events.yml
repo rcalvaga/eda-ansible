@@ -13,7 +13,7 @@
           msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Trigger_ID: {{ event.payload.trigger_id }}"
           
     - name: Zabbix Webhook event
-      condition: event.payload.trigger_id == "32999"
+      condition: event.payload.trigger_id == 32999
       action:
         run_job_template:
           name: Restart Apache Web Server
