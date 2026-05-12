@@ -10,7 +10,7 @@
       condition: event.payload is defined
       action:
         debug: 
-          msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }}"
+          msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Service: {{ event.payload.event_tags.target }}"
           
     - name: Zabbix Webhook event
       condition: event.payload.event_tags.target is select("==","apache")
