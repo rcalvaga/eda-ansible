@@ -16,4 +16,4 @@
       condition: event.payload.event_name == "Apache: Service is down"
       action:
         debug: 
-          msg: "Payload defined!"
+          msg: "Apache: Service is down!"
