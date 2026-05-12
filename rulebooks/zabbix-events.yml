@@ -10,7 +10,7 @@
       condition: event.payload is defined
       action:
         debug: 
-          msg: "Payload defined!"
+          msg: "Payload defined! with Event {{ event.payload.event_name }} and {{ event.payload.operation_data }}"
           
     - name: Zabbix Webhook event
       condition: event.payload.event_name is regex("Apache.*service is down")
