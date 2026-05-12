@@ -1,0 +1,21 @@
+---
+- name: Zabbix Apache is Down Rulebook
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:          
+    - name: Zabbix Apache is Down Event
+      condition: event.payload.trigger_id == 32999 and event.payload.trigger_name is regex("Apache.*Service is down")
+      action:
+        run_job_template:
+          name: Restart Apache Web Server
+          organization: Default
+          job_args:
+            limit: "{{ event.payload.host_host }}"
+    #- name: Zabbix Debug Event
+    #  condition: event.payload is defined
+    #  action:
+    #    debug: 
+    #      msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Trigger_ID: {{ event.payload.trigger_id }}"
