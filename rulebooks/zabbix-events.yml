@@ -19,4 +19,10 @@
       condition: event.payload.trigger_id == 32704 and event.payload.trigger_name is regex("Linux.*High memory utilization")
       action:
         debug: 
-          msg: "Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} on Server: {{ event.payload.host_host }}"
+          msg: "Event triggered!: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} on Server: {{ event.payload.host_host }}"
+
+    - name: Space is critically low
+      condition: event.payload.trigger_id == 33019 and event.payload.trigger_name is regex("Linux.*Space is critically low")
+      action:
+        debug: 
+          msg: "Event triggered!: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} on Server: {{ event.payload.host_host }}"
