@@ -6,7 +6,7 @@
         host: 0.0.0.0
         port: 5000
   rules:          
-    - name: Zabbix Apache is Down Event on "{{ event.payload.host_host }}"
+    - name: Zabbix Apache is Down Event
       condition: event.payload.trigger_id == 32999 and event.payload.trigger_name is regex("Apache.*Service is down")
       action:
         run_job_template:
@@ -15,7 +15,7 @@
           job_args:
             limit: "{{ event.payload.host_host }}"
             
-    - name: Zabbix High Memory Utilization Event on "{{ event.payload.host_host }}"
+    - name: Zabbix High Memory Utilization Event
       condition: event.payload.trigger_id == 32704 and event.payload.trigger_name is regex("Linux.*High memory utilization")
       action:
         debug: 
@@ -27,7 +27,7 @@
  #       debug: 
  #         msg: "Event triggered!: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} on Server: {{ event.payload.host_host }}"
  
-    - name: Zabbix Space is critically low on "{{ event.payload.host_host }}"
+    - name: Zabbix Space is critically low
       condition: event.payload.trigger_id == 33019 and event.payload.trigger_name is regex("Linux.*Space is critically low")
       action:
         run_job_template:
