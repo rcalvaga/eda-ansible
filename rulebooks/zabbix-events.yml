@@ -19,5 +19,5 @@
           name: Restart Apache Web Server
           organization: Default
           job_args:
-            limit: "{{ event['payload']['host_host'] }}"
+            limit: "{{ event.payload.host_host }}"
 
