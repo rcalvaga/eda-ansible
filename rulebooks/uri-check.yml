@@ -16,13 +16,13 @@
     ## Define the action we should take should the condition be met  
       action:
         run_job_template:
-          name: EDA - All is up and well
-          organization: Production
+          name: Demo Job Template
+          organization: Default
 
     - name: Web site is down
       condition: event.url_check.status == "down"
     ## Define the action we should take should the condition be met  
       action:
         run_job_template:
-          name: Ethermine - Miner Status
-          organization: Production
+          name: Restart Apache Web Server
+          organization: Default
