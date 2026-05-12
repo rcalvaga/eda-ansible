@@ -13,7 +13,7 @@
           msg: "Payload defined!"
           
     - name: Zabbix Webhook event
-      condition: event.payload is defined and event.payload.event_name == "Apache: Service is down"
+      condition: event.payload is defined and event.payload.trigger_name == "Apache: Service is down"
       action:
         run_job_template:
           name: Restart Apache Web Server
