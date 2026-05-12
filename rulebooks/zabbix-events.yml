@@ -13,7 +13,10 @@
           msg: "Payload defined!"
         
     - name: Webhook event
-      condition: event.payload.ping == "pong"
+      condition: event.payload.event_name == "Apache: Service is down"
       action:
-        debug:
-          msg: "Webhook triggered!"
+        run_job_template:
+          name: Restart Apache Web Server
+          organization: Default
+          job_args:
+            limit: "{{ event['payload']['host_host'] }}"
