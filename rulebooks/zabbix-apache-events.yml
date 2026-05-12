@@ -14,8 +14,9 @@
           organization: Default
           job_args:
             limit: "{{ event.payload.host_host }}"
-    #- name: Zabbix Debug Event
-    #  condition: event.payload is defined
-    #  action:
-    #    debug: 
-    #      msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Trigger_ID: {{ event.payload.trigger_id }}"
+            
+    - name: Zabbix High Memory Utilization
+      condition: event.payload.trigger_id == 32704 and event.payload.trigger_name is regex("Linux.*High memory utilization")
+      action:
+        debug: 
+          msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Trigger_ID: {{ event.payload.trigger_id }}"
