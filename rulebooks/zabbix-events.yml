@@ -6,13 +6,13 @@
         host: 0.0.0.0
         port: 5000
   rules:
-    - name: Debug
+    - name: Zabbix Debug Events
       condition: event.payload is defined
       action:
         debug: 
           msg: "Payload defined! with Event: {{ event.payload.event_name }} and Operation: {{ event.payload.operation_data }} and Trigger_ID: {{ event.payload.trigger_id }}"
           
-    - name: Zabbix Webhook event
+    - name: Zabbix Apache is Down Event
       condition: event.payload is defined
       action:
         run_job_template:
