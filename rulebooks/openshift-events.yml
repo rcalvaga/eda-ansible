@@ -13,4 +13,4 @@
       condition: event.alert is defined
       action:
         debug: 
-          msg: "Alert defined!"
+          msg: "Alert defined! Alert is: {{ event.alert.status }} and Type is: {{ event.alert.labels.alertname }}"
