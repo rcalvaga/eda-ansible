@@ -10,7 +10,7 @@
         
   rules:
     - name: OpenShift Alertmanager Debug
-      condition: event.alert is defined
+      condition: event.alert.status == "firing"
       action:
         debug: 
           msg: "Alert defined! Alert is: {{ event.alert.status }} and Type is: {{ event.alert.labels.alertname }}"
