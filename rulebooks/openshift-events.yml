@@ -2,12 +2,15 @@
 - name: OpenShift Alertmanager Test Rulebook
   hosts: all
   sources:
-    - ansible.eda.webhook:
+    - name: listen for alerts
+      ansible.eda.alertmanager:
         host: 0.0.0.0
         port: 5050
+        data_host_path: ""
+        
   rules:
-    - name: Debug
-      condition: event.meta.headers is defined
+    - name: OpenShift Alertmanager Debug
+      condition: event.alert is defined
       action:
         debug: 
-          msg: "Payload defined!"
+          msg: "Alert defined!"
