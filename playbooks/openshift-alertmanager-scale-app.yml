@@ -11,5 +11,5 @@
         kind: Deployment
         name: quarkus-monitor
         namespace: default
-        replicas: 2
+        replicas: "{{ replicas }}"
         wait_timeout: 60
