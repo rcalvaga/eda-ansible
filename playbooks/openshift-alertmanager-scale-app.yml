@@ -12,3 +12,17 @@
         namespace: default
         replicas: "{{ replicas }}"
         wait_timeout: 60
+
+   - name: Restart Kubernetes deployment
+     kubernetes.core.k8s:
+       state: patched
+       kind: Deployment
+       name: quarkus-monitor
+       namespace: default
+       definition:
+         spec:
+           template:
+             metadata:
+               annotations:
+                 # Using a timestamp triggers the rolling update
+                 kubectl.kubernetes.io/restartedAt: "{{ lookup('pipe', 'date +%Y-%m-%dT%H:%M:%SZ') }}"
